@@ -1,16 +1,22 @@
 <script lang="ts" setup>
-const search = ref('');
-const isDarkMode = ref(false);
+const search = ref('')
+const isDarkMode = ref(false)
 const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value;
-  document.documentElement.classList.toggle('app-dark');
-};
+  isDarkMode.value = !isDarkMode.value
+  document.documentElement.classList.toggle('app-dark')
+}
 </script>
 
 <template>
   <header>
-    <InputText v-model="search" placeholder="Search..." />
-    <Button :icon="isDarkMode ? 'pi pi-moon' : 'pi pi-sun'" plain @click="toggleDarkMode()" />
+    <InputText v-model="search" placeholder="Search..." size="small" />
+    <Button
+      :icon="isDarkMode ? 'pi pi-moon' : 'pi pi-sun'"
+      size="small"
+      severity="contrast"
+      plain
+      @click="toggleDarkMode()"
+    />
   </header>
 </template>
 

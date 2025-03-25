@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { designPanelOpen } = storeToRefs(useLayoutStore());
+const { designPanelOpen } = storeToRefs(useLayoutStore())
 
 const menuItems = ref([
   {
@@ -28,14 +28,14 @@ const menuItems = ref([
       },
     ],
   },
-]);
+])
 </script>
 
 <template>
   <aside>
-    <div id="sidebar-header">
-      <h2>PrimeVue</h2>
-      <h4>Theme designer</h4>
+    <div class="flex flex-col items-center gap-1 !mb-8">
+      <h2 class="text-2xl font-semibold">PrimeVue</h2>
+      <h4 class="text-xl font-light">Theme designer</h4>
     </div>
     <section class="menu-container">
       <a class="menu-item" @click="designPanelOpen = !designPanelOpen">
@@ -58,15 +58,6 @@ aside {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-
-  #sidebar-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
-  }
 
   .menu-container {
     list-style: none;

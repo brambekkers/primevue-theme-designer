@@ -1,6 +1,9 @@
-@import 'primeicons/primeicons.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+@import 'primeicons/primeicons.css';
 
+@custom-variant dark (&:where(.app-dark, .app-dark *));
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +13,4 @@
 html {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-}
-
-body {
-  background-color: #f1f5f9;
 }

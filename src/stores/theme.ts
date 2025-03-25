@@ -12,9 +12,16 @@ type ThemeItem = {
   preset: Preset
 }
 
+const testTheme = {
+  name: 'Test',
+  id: uniqueId('theme-'),
+  preset: JSON.parse(JSON.stringify(Aura)),
+}
+
 export const useThemeStore = defineStore('themes', () => {
-  const themes = ref<ThemeItem[]>([])
-  const selectedTheme = ref<string | null>(null)
+  const themes = ref<ThemeItem[]>([testTheme])
+  const selectedThemeId = ref<string | null>(testTheme.id)
+  const selectedTheme = computed(() => themes.value.find((t) => t.id === selectedThemeId.value))
 
   const addTheme = (name: string, base: 'Aura' | 'Lara' | 'Nora' | 'Material') => {
     const preset =
@@ -32,12 +39,22 @@ export const useThemeStore = defineStore('themes', () => {
   const selectTheme = (id: string) => {
     const theme = themes.value.find((t) => t.id === id)
     if (!theme) return
-    selectedTheme.value = theme.id
+    selectedThemeId.value = theme.id
     usePreset(theme.preset)
   }
 
+  watch(
+    selectedTheme,
+    (theme) => {
+      if (!theme) return
+      usePreset(theme.preset)
+    },
+    { deep: true },
+  )
+
   return {
     themes,
+    selectedTheme,
     addTheme,
     selectTheme,
   }

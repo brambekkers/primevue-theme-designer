@@ -2,7 +2,7 @@
 const step = defineModel({ required: true })
 const themeStore = useThemeStore()
 
-const { themes } = storeToRefs(themeStore)
+const { themes, selectedTheme } = storeToRefs(themeStore)
 </script>
 
 <template>
@@ -16,12 +16,15 @@ const { themes } = storeToRefs(themeStore)
         :label="theme.name.slice(0, 5)"
         icon="pi pi-plus"
         size="xlarge"
-        class="!font-normal !text-base hover:!font-medium opacity-70 !bg-transparent border !w-28 !h-28 hover:!opacity-100"
+        class="!font-normal cursor-pointer !rounded-lg !text-base hover:!font-medium opacity-70 !bg-transparent border !w-28 !h-28 hover:!opacity-100 hover:!bg-gray-50 dark:hover:!bg-gray-950 transition-all duration-150 ease-in-out"
+        :class="{
+          '!opacity-100 !bg-gray-50 dark:!bg-gray-950 !border-2': theme.id === selectedTheme.id,
+        }"
         @click="themeStore.selectTheme(theme.id)"
       />
       <Avatar
         icon="pi pi-plus"
-        class="!font-normal hover:!font-medium !w-28 !h-28 !bg-transparent border !opacity-70"
+        class="!font-normal cursor-pointer !rounded-lg hover:!font-medium !w-28 !h-28 !bg-transparent border !opacity-70 hover:!bg-gray-50 dark:hover:!bg-gray-950 transition-all duration-150 ease-in-out"
         @click="step = 'create'"
       />
     </div>

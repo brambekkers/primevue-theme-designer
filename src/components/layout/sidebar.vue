@@ -61,7 +61,7 @@ const menuItems = ref([
             v-ripple
             class="flex items-center !border-s border-[#ddd] hover:border-emerald-900 opacity-70"
             v-bind="props.action"
-            @click="router.push(`/${item}`)"
+            @click="router.push(`/${item.toLowerCase()}`)"
           >
             {{ item }}
           </a>

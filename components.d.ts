@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Avatar: typeof import('primevue/avatar')['default']
+    Badge: typeof import('primevue/badge')['default']
     Button: typeof import('primevue/button')['default']
     ColorPicker: typeof import('primevue/colorpicker')['default']
     Create: typeof import('./src/components/designPanel/create.vue')['default']
@@ -26,6 +27,7 @@ declare module 'vue' {
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     InputText: typeof import('primevue/inputtext')['default']
     Menu: typeof import('primevue/menu')['default']
+    MenuItem: typeof import('./src/components/layout/MenuItem.vue')['default']
     Navbar: typeof import('./src/components/layout/navbar.vue')['default']
     PrimeColorPicker: typeof import('./src/components/designPanel/edit/PrimeColorPicker.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -45,5 +47,8 @@ declare module 'vue' {
     Themes: typeof import('./src/components/designPanel/themes.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    Ripple: typeof import('primevue/ripple')['default']
   }
 }

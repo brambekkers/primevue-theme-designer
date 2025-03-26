@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import "tailwindcss";
-@import "tailwindcss-primeui";
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
 @import 'primeicons/primeicons.css';
 
 @custom-variant dark (&:where(.app-dark, .app-dark *));
@@ -13,4 +13,24 @@
 html {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+  border: transparent;
+}
+
+::-webkit-resizer,
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+  display: none;
 }
